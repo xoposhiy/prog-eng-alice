@@ -1,1 +1,7 @@
 /node_modules
+.vs
+bin
+obj
+*.user
+packages
+/.env

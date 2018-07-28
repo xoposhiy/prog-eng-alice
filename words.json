@@ -1,0 +1,429 @@
+[
+  {
+    "frequency": 27,
+    "en": "default",
+    "ru": "по умолчанию|умолчание",
+    "example": "LastOrDefault"
+  },
+  {
+    "frequency": 26,
+    "en": "last",
+    "ru": "последний",
+    "example": "FindLast"
+  },
+  {
+    "frequency": 23,
+    "en": "string",
+    "ru": "строка",
+    "example": "ToString"
+  },
+  {
+    "frequency": 21,
+    "en": "equals",
+    "ru": "равняется",
+    "example": null
+  },
+  {
+    "frequency": 20,
+    "en": "hash",
+    "ru": "хэш",
+    "example": "GetHashCode"
+  },
+  {
+    "frequency": 16,
+    "en": "value",
+    "ru": "значение",
+    "example": "MaxValue"
+  },
+  {
+    "frequency": 14,
+    "en": "group",
+    "ru": "группа|группировать|сгруппировать",
+    "example": "GroupBy"
+  },
+  {
+    "frequency": 12,
+    "en": "max",
+    "ru": "максимум|максимальный",
+    "example": "MaxValue"
+  },
+  {
+    "frequency": 12,
+    "en": "parse",
+    "ru": "разобрать|распарсить|парсить|парсинг",
+    "example": "TryParse",
+	"explanation": "Так называют алгоритм, получающий на вход текст, и возвращающий структурированное представление содержимого этого текста"
+  },
+  {
+    "frequency": 12,
+    "en": "all",
+    "ru": "все",
+    "example": "FindAll"
+  },
+  {
+    "frequency": 12,
+    "en": "index",
+    "ru": "индекс",
+    "example": "IndexOf"
+  },
+  {
+    "frequency": 12,
+    "en": "item",
+    "ru": "пункт|элемент",
+    "example": null
+  },
+  {
+    "frequency": 11,
+    "en": "join",
+    "ru": "присоединение|объединение|присоединить|объединить",
+    "example": "GroupJoin"
+  },
+  {
+    "frequency": 10,
+    "en": "infinity",
+    "ru": "бесконечность",
+    "example": "IsInfinity"
+  },
+  {
+    "frequency": 10,
+    "en": "empty",
+    "ru": "пустой",
+    "example": "IsEmpty"
+  },
+  {
+    "frequency": 10,
+    "en": "read",
+    "ru": "читать",
+    "example": "ReadKey"
+  },
+  {
+    "frequency": 10,
+    "en": "set",
+    "ru": "набор|множество|установить",
+    "example": "SetIn"
+  },
+  {
+    "frequency": 10,
+    "en": "count",
+    "ru": "количество|считать",
+    "example": "LongCount"
+  },
+  {
+    "frequency": 10,
+    "en": "element",
+    "ru": "элемент",
+    "example": "ElementAt"
+  },
+  {
+    "frequency": 10,
+    "en": "first",
+    "ru": "первый",
+    "example": "FirstOrDefault"
+  },
+  {
+    "frequency": 10,
+    "en": "order",
+    "ru": "упорядочить",
+    "example": "OrderBy"
+  },
+  {
+    "frequency": 10,
+    "en": "select",
+    "ru": "выбор|выбрать",
+    "example": "SelectMany"
+  },
+  {
+    "frequency": 10,
+    "en": "single",
+    "ru": "единственный",
+    "example": "SingleOrDefault"
+  },
+  {
+    "frequency": 10,
+    "en": "skip",
+    "ru": "пропустить",
+    "example": "SkipWhile"
+  },
+  {
+    "frequency": 10,
+    "en": "while",
+    "ru": "пока",
+    "example": "SkipWhile"
+  },
+  {
+    "frequency": 10,
+    "en": "take",
+    "ru": "взять",
+    "example": "TakeWhile"
+  },
+  {
+    "frequency": 10,
+    "en": "find",
+    "ru": "найти",
+    "example": "FindAll"
+  },
+  {
+    "frequency": 9,
+    "en": "create",
+    "ru": "создать",
+    "example": "CreateText"
+  },
+  {
+    "frequency": 8,
+    "en": "compare",
+    "ru": "сравнить",
+    "example": "CompareTo"
+  },
+  {
+    "frequency": 8,
+    "en": "copy",
+    "ru": "скопировать|копия",
+    "example": "CopyTo"
+  },
+  {
+    "frequency": 8,
+    "en": "window",
+    "ru": "окно",
+    "example": "WindowTop"
+  },
+  {
+    "frequency": 8,
+    "en": "access",
+    "ru": "доступ",
+    "example": "LastAccessTime"
+  },
+  {
+    "frequency": 7,
+    "en": "try",
+    "ru": "попробовать|попытка",
+    "example": "TryParse"
+  },
+  {
+    "frequency": 7,
+    "en": "open",
+    "ru": "открыть",
+    "example": "OpenRead"
+  },
+  {
+    "frequency": 7,
+    "en": "write",
+    "ru": "писать|записать",
+    "example": "WriteLine"
+  },
+  {
+    "frequency": 7,
+    "en": "any",
+    "ru": "любой",
+    "example": "IndexOfAny"
+  },
+  {
+    "frequency": 7,
+    "en": "contains",
+    "ru": "содержит",
+    "example": "ContainsKey"
+  },
+  {
+    "frequency": 7,
+    "en": "length",
+    "ru": "длина",
+    "example": "GetLength"
+  },
+  {
+    "frequency": 7,
+    "en": "remove",
+    "ru": "удалить",
+    "example": "RemoveAt"
+  },
+  {
+    "frequency": 6,
+    "en": "lower",
+    "ru": "нижний",
+    "example": "IsLower"
+  },
+  {
+    "frequency": 6,
+    "en": "upper",
+    "ru": "верхний",
+    "example": "IsUpper"
+  },
+  {
+    "frequency": 6,
+    "en": "clear",
+    "ru": "очистить",
+    "example": "ClearCachedData"
+  },
+  {
+    "frequency": 6,
+    "en": "cast",
+    "ru": "привести типы|привести|приведение|каст|привидение",
+    "example": "DownCast"
+  },
+  {
+    "frequency": 6,
+    "en": "descending",
+    "ru": "по убыванию|убывание",
+    "example": "ThenByDescending"
+  },
+  {
+    "frequency": 6,
+    "en": "reverse",
+    "ru": "инвертировать|обратить|обратный",
+    "example": null
+  },
+  {
+    "frequency": 6,
+    "en": "array",
+    "ru": "массив",
+    "example": "ToArray"
+  },
+  {
+    "frequency": 6,
+    "en": "only",
+    "ru": "только",
+    "example": "ReadOnly"
+  },
+  {
+    "frequency": 6,
+    "en": "match",
+    "ru": "соответствие|совпадение",
+    "example": "IsMatch"
+  },
+  {
+    "frequency": 6,
+    "en": "enumerator",
+    "ru": "перечислитель",
+    "example": "GetEnumerator"
+  },
+  {
+    "frequency": 5,
+    "en": "letter",
+    "ru": "буква",
+    "example": "IsLetter"
+  },
+  {
+    "frequency": 5,
+    "en": "number",
+    "ru": "число",
+    "example": "IsNumber"
+  },
+  {
+    "frequency": 5,
+    "en": "invariant",
+    "ru": "инвариант",
+    "example": "ToLowerInvariant"
+  },
+  {
+    "frequency": 5,
+    "en": "size",
+    "ru": "размер",
+    "example": "CacheSize"
+  },
+  {
+    "frequency": 5,
+    "en": "aggregate",
+    "ru": "агрегировать|агрегация",
+    "example": null
+  },
+  {
+    "frequency": 5,
+    "en": "enumerable",
+    "ru": "перечислимый|перечислимое",
+    "example": "AsEnumerable"
+  },
+  {
+    "frequency": 5,
+    "en": "average",
+    "ru": "средний",
+    "example": null
+  },
+  {
+    "frequency": 5,
+    "en": "distinct",
+    "ru": "различные|уникальные",
+    "example": null
+  },
+  {
+    "frequency": 5,
+    "en": "except",
+    "ru": "за исключением|исключая|кроме",
+    "example": null
+  },
+  {
+    "frequency": 5,
+    "en": "intersect",
+    "ru": "пересечь|пересекать|пересекаются",
+    "example": null
+  },
+  {
+    "frequency": 5,
+    "en": "range",
+    "ru": "диапазон",
+    "example": "AddRange"
+  },
+  {
+    "frequency": 5,
+    "en": "sequence",
+    "ru": "последовательность",
+    "example": "SequenceEqual"
+  },
+  {
+    "frequency": 5,
+    "en": "equal",
+    "ru": "равен|равны",
+    "example": "SequenceEqual"
+  },
+  {
+    "frequency": 5,
+    "en": "sum",
+    "ru": "сложить|просуммировать|суммировать|сумма",
+    "example": null
+  },
+  {
+    "frequency": 5,
+    "en": "dictionary",
+    "ru": "словарь",
+    "example": "ToDictionary"
+  },
+  {
+    "frequency": 5,
+    "en": "list",
+    "ru": "список",
+    "example": "ToList"
+  },
+  {
+    "frequency": 5,
+    "en": "lookup",
+    "ru": "поиск",
+    "example": "ToLookup"
+  },
+  {
+    "frequency": 5,
+    "en": "union",
+    "ru": "объединить|объединение",
+    "example": null
+  },
+  {
+    "frequency": 5,
+    "en": "where",
+    "ru": "где",
+    "example": null
+  },
+  {
+    "frequency": 5,
+    "en": "current",
+    "ru": "текущий",
+    "example": "CurrentCulture"
+  },
+  {
+    "frequency": 5,
+    "en": "language",
+    "ru": "язык",
+    "example": "IetfLanguageTag"
+  },
+  {
+    "frequency": 5,
+    "en": "replace",
+    "ru": "заменить|замена",
+    "example": null
+  }
+]

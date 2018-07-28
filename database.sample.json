@@ -1,0 +1,16 @@
+{
+	"vocabulary": {
+		"0":
+        {
+            "en": "default",
+            "ru": "умолчание|по умолчанию|дефолтный",
+            "example": "FirstOrDefault",
+            "example_tts": "first or default"
+        },
+		"1": 
+        {
+            "en": "last",
+            "ru": "последний"
+        }
+    }
+}
