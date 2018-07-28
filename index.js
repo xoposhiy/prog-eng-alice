@@ -4,7 +4,8 @@ const setupDialogs = require('./dialogs.js');
 const Db = require('./db/db.js');
 require('dotenv').config();
 
-console.log("process.env.firebaseApiKey=" + process.env.firebaseApiKey);
+console.log("process.env:");
+console.log(process.env);
 
 var config = {
     apiKey: process.env.firebaseApiKey,
