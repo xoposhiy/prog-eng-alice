@@ -3,7 +3,7 @@ module.exports = class User {
         this.userId = params.userId;
         this.lastSessionId = params.lastSessionId;
         this.lastWord = params.lastWord;
-        this.exampleUsed = params.exampleUsed;
+        this.exampleUsed = params.exampleUsed || false;
 //        this.lastGroup = params.lastGroup;
   //      this.groups = params.groups;
     }

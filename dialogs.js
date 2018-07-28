@@ -34,6 +34,7 @@ module.exports = function setupDialogs(alice, words, db){
     
     function giveTask(session, ctx){
         const word = getNextWord(session);
+        session.lastWord = word;
         ctx.reply(ctx.replyBuilder
             .text(`Переведи слово ${word.en}`)
             .addButton(button('подскажи'))
@@ -102,16 +103,12 @@ module.exports = function setupDialogs(alice, words, db){
     function getHintCandidates(word){
         const i1 = getRandomArbitrary(words.length);
         const i2 = getRandomArbitrary(words.length);
-        console.log(i1);
-        console.log(i2);
-        console.log(words.length);
         var candidates = [word.ru, words[i1].ru, words[i2].ru].map(w => w.split('|')[0]);
         candidates.sort((a, b) => Math.random());
         return candidates;
     }
     function convertIdentifierToTts(identifier){
         const tts = identifier.replace(/[A-Z]/g, " $&").trim();
-        console.log(tts);
         return tts;
     }
     function giveHintAnswer(word, session, ctx){
