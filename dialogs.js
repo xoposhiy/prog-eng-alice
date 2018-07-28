@@ -25,33 +25,33 @@ module.exports = function setupDialogs(alice, words, db){
         });
     });
 
-    function getNextWord(session){
-        let nextWordIndex = getRandomArbitrary(words.length);
-        const word = words[nextWordIndex];
-        session.lastWord = word;
-        return word;
+    function checkAnswer(session, ctx){
+        const word = session.lastWord;
+        if (isDefeat(ctx.message))
+            defeatAnswer(word, session, ctx);
+        if (isHintRequest(ctx.message))
+            giveHintAnswer(word, session, ctx);
+        else if (isCorrect(word, ctx.message))
+            correctAnswer(session, ctx);
+        else 
+            incorrectAnswer(word, session, ctx);
     }
-    
+
     function giveTask(session, ctx){
         const word = getNextWord(session);
-        session.lastWord = word;
         ctx.reply(ctx.replyBuilder
             .text(`Переведи слово ${word.en}`)
             .addButton(button('подскажи'))
             .addButton(button('сдаюсь'))
             .get());
     }
-    
+
+    function getNextWord(session){
+        return session.lastWord = randomItem(words);
+    }    
+   
     function isDefeat(message){
         return ["сдаюсь", "не знаю"].indexOf(message.toLowerCase()) >= 0;
-    }
-    
-    function formatDefeatMessage(word){
-        const reply = [`Правильный ответ '${word.ru.split('|')[0]}'.`];
-        if(word.example){
-            reply.push(`Пример использования: ${word.example}.`)
-        }
-        return reply.join(' ');
     }
     
     function defeatAnswer(word, session, ctx){
@@ -63,6 +63,17 @@ module.exports = function setupDialogs(alice, words, db){
         ctx.reply(`${defeatMessage} ${nextWord} ${newWord.en}`);
     }
     
+    function formatDefeatMessage(word){
+        const reply = [`Правильный ответ '${word.ru.split('|')[0]}'.`];
+        if(word.example){
+            reply.push(`Пример использования: ${word.example}.`)
+        }
+        return reply.join(' ');
+    }
+    
+    function isCorrect(word, answer){
+        return word.ru.indexOf(answer.toLowerCase()) >= 0
+    }
     function correctAnswer(session, ctx){
         session.mistakes = 0;
         session.exampleUsed = false;
@@ -80,10 +91,6 @@ module.exports = function setupDialogs(alice, words, db){
             .get());
     }
     
-    function isCorrect(word, answer){
-        return word.ru.indexOf(answer.toLowerCase()) >= 0
-    }
-
     function isHintRequest(message){
         return [
             'помоги', 'подскажи', 
@@ -92,25 +99,6 @@ module.exports = function setupDialogs(alice, words, db){
         ].indexOf(message.toLowerCase()) >= 0;
     }
 
-    function getRandomArbitrary(max) {
-        return Math.trunc(Math.random() * max);
-    }
-
-    function randomItem(array) {
-        return array[Math.trunc(Math.random() * array.length)];
-    }
-
-    function getHintCandidates(word){
-        const i1 = getRandomArbitrary(words.length);
-        const i2 = getRandomArbitrary(words.length);
-        var candidates = [word.ru, words[i1].ru, words[i2].ru].map(w => w.split('|')[0]);
-        candidates.sort((a, b) => Math.random());
-        return candidates;
-    }
-    function convertIdentifierToTts(identifier){
-        const tts = identifier.replace(/[A-Z]/g, " $&").trim();
-        return tts;
-    }
     function giveHintAnswer(word, session, ctx){
         session.mistakes = session.mistakes + 1 || 1;
         console.log("ex used: " + session.exampleUsed);
@@ -125,16 +113,21 @@ module.exports = function setupDialogs(alice, words, db){
             ctx.reply(`Один из этих вариантов правильный: ${getHintCandidates(word).join(', ')}`);
         }
     }
-    
-    function checkAnswer(session, ctx){
-        const word = session.lastWord;
-        if (isDefeat(ctx.message))
-            defeatAnswer(word, session, ctx);
-        if (isHintRequest(ctx.message))
-            giveHintAnswer(word, session, ctx);
-        else if (isCorrect(word, ctx.message))
-            correctAnswer(session, ctx);
-        else 
-            incorrectAnswer(word, session, ctx);
+
+    function getHintCandidates(word){
+        const w1 = randomItem(words);
+        const w2 = randomItem(words);
+        var candidates = [word.ru, w1.ru, w2.ru].map(w => w.split('|')[0]);
+        candidates.sort((a, b) => Math.random());
+        return candidates;
+    }
+
+    function convertIdentifierToTts(identifier){
+        const tts = identifier.replace(/[A-Z]/g, " $&").trim();
+        return tts;
+    }
+
+    function randomItem(array) {
+        return array[Math.trunc(Math.random() * array.length)];
     }
 }
