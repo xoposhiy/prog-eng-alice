@@ -4,6 +4,8 @@ const setupDialogs = require('./dialogs.js');
 const Db = require('./db/db.js');
 require('dotenv').config();
 
+console.log("process.env.firebaseApiKey=" + process.env.firebaseApiKey);
+
 var config = {
     apiKey: process.env.firebaseApiKey,
     authDomain: "prog-eng-alice.firebaseapp.com",
