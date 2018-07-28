@@ -59,7 +59,7 @@ module.exports = function setupDialogs(alice, words, db){
         session.exampleUsed = false;
         const newWord = getNextWord(session);
         const defeatMessage = formatDefeatMessage(word);
-        const nextWord = randomItem('Следующее слово|Следующее|А как на счёт'.split('|'));
+        const nextWord = randomItem('Следующее слово:|Следующее:|А как на счёт'.split('|'));
         ctx.reply(`${defeatMessage} ${nextWord} ${newWord.en}`);
     }
     
@@ -68,7 +68,7 @@ module.exports = function setupDialogs(alice, words, db){
         session.exampleUsed = false;
         const newWord = getNextWord(session);
         const ok = randomItem('Верно!|Да!|Ага.|Правильно!'.split('|'));
-        const nextWord = randomItem('Следующее слово|Следующее|А как на счёт'.split('|'));
+        const nextWord = randomItem('Следующее слово:|Следующее:|А как на счёт'.split('|'));
         ctx.reply(`${ok} ${nextWord} ${newWord.en}`);
     }
     
@@ -88,7 +88,7 @@ module.exports = function setupDialogs(alice, words, db){
         return [
             'помоги', 'подскажи', 
             'сложно', 'нет', 'не помогло',
-            'хочу подсказку', 'дай подсказку', 'подсказку', 
+            'хочу подсказку', 'дай подсказку', 'давай подсказку', 'подсказку', 
         ].indexOf(message.toLowerCase()) >= 0;
     }
 
@@ -116,8 +116,8 @@ module.exports = function setupDialogs(alice, words, db){
         console.log("ex used: " + session.exampleUsed);
         if (word.example && !session.exampleUsed){
             ctx.reply(ctx.replyBuilder
-                .text(`Вот пример использования этого слова: ${word.example}. Теперь догадался?`)
-                .tts(`Вот пример использования этого сл+ова: ${convertIdentifierToTts(word.example)}. - - Теперь догадался?`)
+                .text(`Подсказка. Вот пример использования этого слова: ${word.example}. Помогло?`)
+                .tts(`Подсказка. Вот пример использования этого сл+ова: ${convertIdentifierToTts(word.example)}. - - Помогло?`)
                 .get());
             session.exampleUsed = true;
         }
