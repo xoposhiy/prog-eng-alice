@@ -11,10 +11,9 @@ module.exports = function setupDialogs(alice, words, db){
     });
 
     alice.any(ctx => {
-        const sId = ctx.sessionId;
         db.getOrCreateUser(ctx.userId, ctx.sessionId).then(session => {
             console.log(session);
-            if (session.lastWord){
+            if (session.lastSessionId === ctx.sessionId && session.lastWord){
                 checkAnswer(session, ctx);
             }
             else{
@@ -110,12 +109,19 @@ module.exports = function setupDialogs(alice, words, db){
         candidates.sort((a, b) => Math.random());
         return candidates;
     }
-
+    function convertIdentifierToTts(identifier){
+        const tts = identifier.replace(/[A-Z]/g, " $&").trim();
+        console.log(tts);
+        return tts;
+    }
     function giveHintAnswer(word, session, ctx){
         session.mistakes = session.mistakes + 1 || 1;
         console.log("ex used: " + session.exampleUsed);
         if (word.example && !session.exampleUsed){
-            ctx.reply(`Вот пример использования этого слова: ${word.example}. Теперь догадался?`);
+            ctx.reply(ctx.replyBuilder
+                .text(`Вот пример использования этого слова: ${word.example}. Теперь догадался?`)
+                .tts(`Вот пример использования этого сл+ова: ${convertIdentifierToTts(word.example)}. - - Теперь догадался?`)
+                .get());
             session.exampleUsed = true;
         }
         else {
