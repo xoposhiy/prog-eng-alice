@@ -8,7 +8,7 @@
     "test": "cross-env-shell echo $nowToken",
     "predeploy": "echo y | cross-env-shell now rm prog-eng-alice --token=$nowToken || echo ops",
     "deploy": "cross-env-shell now -e firebaseApiKey=$firebaseApiKey -e firebaseEmail=$firebaseEmail -e firebasePassword=$firebasePassword --token=$nowToken --public",
-    "postdeploy": "cross-env now alias --token=%nowToken%"
+    "postdeploy": "cross-env now alias --token=$nowToken"
   },
   "repository": {
     "type": "git",
