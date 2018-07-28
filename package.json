@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "cross-env-shell echo $nowToken",
-    "predeploy": "echo y | cross-env-shell now rm prog-eng-alice --token=$nowToken",
-    "deploy": "cross-env-shell now --token=$nowToken --public",
+    "predeploy": "echo y | cross-env-shell now rm prog-eng-alice --token=$nowToken || echo ops",
+    "deploy": "cross-env-shell now --dotenv --token=$nowToken --public",
     "postdeploy": "cross-env now alias --token=%nowToken%"
   },
   "repository": {
