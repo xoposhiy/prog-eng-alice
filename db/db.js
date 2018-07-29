@@ -7,38 +7,31 @@ module.exports = class DB {
 
     getUser(userId) {
         return this.db.ref(`users/${userId}`).once('value').then(snapshot => {
-            return snapshot && new User(snapshot.val(), this);
+            return snapshot && snapshot.val();
         })
     }
     getOrCreateUser(userId, sessionId) {
         return this.db.ref(`users/${userId}`).once('value').then(snapshot => {
             if (snapshot && snapshot.val())
-                return new User(snapshot.val(), this);
+                return snapshot.val();
             else{
                 const userDto = {
                     userId: userId,
                     lastSessionId: sessionId,
                 };
-                const user = new User(userDto, this);
                 return this.db
                     .ref(`users/${userId}`)
                     .set(userDto)
-                    .then(() => user);
+                    .then(() => userDto);
             }
         })
     }
 
-    addUser(userId, params) {
-        return this.db.ref(`users/${userId}`).set(params);
+    addUser(userId, userDto) {
+        return this.db.ref(`users/${userId}`).set(userDto);
     }
 
-    updateUser(userId, params) {
-        return this.db.ref(`users/${userId}`).update(params);
-    }
-
-    getWords() {
-        return this.db.ref('vocabulary').once('value').then(snapshot => {
-            return  snapshot && snapshot.val();
-        });
+    updateUser(userId, userDto) {
+        return this.db.ref(`users/${userId}`).update(userDto);
     }
 }
