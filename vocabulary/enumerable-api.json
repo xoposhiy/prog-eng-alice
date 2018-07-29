@@ -1,0 +1,135 @@
+[
+  {
+    "frequency": 20,
+    "en": "average",
+    "ru": "средний|среднее",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 16,
+    "en": "predicate",
+    "ru": "предикат",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 14,
+    "en": "first",
+    "ru": "первый",
+    "example": "FirstOrDefault",
+    "hard": false
+  },
+  {
+    "frequency": 10,
+    "en": "second",
+    "ru": "второй",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 10,
+    "en": "default",
+    "ru": "по умолчанию|умолчание",
+    "example": "FirstOrDefault",
+    "hard": false
+  },
+  {
+    "frequency": 6,
+    "en": "select",
+    "ru": "выбор",
+    "example": "SelectMany",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "order",
+    "ru": "упорядочить|порядок|упорядочивание",
+    "example": "OrderByDescending",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "descending",
+    "ru": "по убыванию",
+    "example": "OrderByDescending",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "single",
+    "ru": "единственный|один|одинокий",
+    "example": "SingleOrDefault",
+    "hard": false
+  },
+  {
+    "frequency": 3,
+    "en": "take",
+    "ru": "взять",
+    "example": "TakeWhile",
+    "hard": false
+  },
+  {
+    "frequency": 3,
+    "en": "skip",
+    "ru": "пропустить",
+    "example": "SkipWhile",
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "distinct",
+    "ru": "различные|различных|различный|уникальный|уникальные|уникальных",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "union",
+    "ru": "объединить|объединение",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "intersect",
+    "ru": "пересечь|пересекать",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "except",
+    "ru": "за исключением|кроме|исключая",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "sequence",
+    "ru": "последовательность",
+    "example": "SequenceEqual",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "range",
+    "ru": "диапазон|промежуток",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "append",
+    "ru": "добавить в конец|приписать в конец|добавить|приписать",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "prepend",
+    "ru": "добавить в начало|приписать в начало|добавить|приписать",
+    "example": null,
+    "hard": false
+  }
+]

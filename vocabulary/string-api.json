@@ -1,0 +1,305 @@
+[
+  {
+    "frequency": 30,
+    "en": "append",
+    "ru": "добавить",
+    "example": "AppendFormat",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "ensure",
+    "ru": "обеспечить|убедиться",
+    "example": "EnsureCapacity",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "repeat",
+    "ru": "повторить|повтор",
+    "example": "repeatCount",
+    "hard": false
+  },
+ {
+  "frequency": 22,
+  "en": "arg",
+  "ru": "сокращение от аргумент|аргумент",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 14,
+  "en": "count",
+  "ru": "количество|считать",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 14,
+  "en": "compare",
+  "ru": "сравнить|сравнивать",
+  "example": "CompareOrdinal",
+  "hard": true
+ },
+ {
+  "frequency": 12,
+  "en": "comparison",
+  "ru": "сравнение",
+  "example": "comparisonType",
+  "hard": true
+ },
+ {
+  "frequency": 12,
+  "en": "any",
+  "ru": "любой",
+  "example": "IndexOfAny",
+  "hard": true
+ },
+ {
+  "frequency": 12,
+  "en": "last",
+  "ru": "последний",
+  "example": "LastIndexOf",
+  "hard": true
+ },
+ {
+  "frequency": 11,
+  "en": "separator",
+  "ru": "разделитель",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 11,
+  "en": "concat",
+  "ru": "функция конкатенации|конкатенация|приписывание",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 7,
+  "en": "trim",
+  "ru": "подрезать|подрезка",
+  "example": "trimChars",
+  "explain": "так называется удаление пробельных символов с концов строки",
+  "hard": true
+ },
+ {
+  "frequency": 6,
+  "en": "char",
+  "ru": "сокращение от character (символ)|символ|символ строки",
+  "example": "ToCharArray",
+  "hard": true
+ },
+ {
+  "frequency": 6,
+  "en": "split",
+  "ru": "разделение",
+  "example": null,
+  "explain": "так называют функции, разделяющие строку на части по какому-то правилу",
+  "hard": true
+ },
+ {
+  "frequency": 6,
+  "en": "case",
+  "ru": "регистр символа|регистр|случай|вариант",
+  "example": "ignoreCase",
+  "hard": true
+ },
+ {
+  "frequency": 5,
+  "en": "join",
+  "ru": "присоединение|соединение|объединение",
+  "example": null,
+  "explain": "так называют функции, приписывающие строки друг к другу через разделитель",
+  "hard": true
+ },
+ {
+  "frequency": 5,
+  "en": "equal",
+  "ru": "равен|равны|совпадают|совпадать|равняется|равняться",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 5,
+  "en": "provider",
+  "ru": "поставщик",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 4,
+  "en": "total",
+  "ru": "общий",
+  "example": "totalWidth",
+  "hard": true
+ },
+ {
+  "frequency": 4,
+  "en": "pad",
+  "ru": "дополнять|заполнять|дополнить|заполнить|отбить|отбивать",
+  "example": "PadRight",
+  "explain": "так называют функции, приписывающие в начало или конец строки пробельные символы, чтобы дополнить строку до заданной ширины",
+  "hard": true
+ },
+ {
+  "frequency": 3,
+  "en": "lower",
+  "ru": "нижний|ниже",
+  "example": "ToLower",
+  "explain": "при работе со строками это как правило означает нижний регистр символов",
+  "hard": true
+ },
+ {
+  "frequency": 3,
+  "en": "upper",
+  "ru": "верхний|выше",
+  "example": "ToUpper",
+  "explain": "при работе со строками это как правило означает верхний регистр символов",
+  "hard": true
+ },
+ {
+  "frequency": 3,
+  "en": "args",
+  "ru": "сокращение от аргумент|аргумент",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 2,
+  "en": "destination",
+  "ru": "назначение|адресат|получатель",
+  "example": "destinationIndex",
+  "explain": "при копировании или перемещении так называют то, куда копируют",
+  "hard": true
+ },
+ {
+  "frequency": 2,
+  "en": "array",
+  "ru": "массив",
+  "example": "ToCharArray",
+  "hard": true
+ },
+ {
+  "frequency": 2,
+  "en": "substring",
+  "ru": "подстрока",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 2,
+  "en": "normalized",
+  "ru": "нормализованный",
+  "example": "IsNormalized",
+  "hard": true
+ },
+ {
+  "frequency": 2,
+  "en": "normalization",
+  "ru": "нормализация",
+  "example": "normalizationForm",
+  "hard": true
+ },
+ {
+  "frequency": 2,
+  "en": "ordinal",
+  "ru": "порядковый|по порядку",
+  "example": "CompareOrdinal",
+  "hard": true
+ },
+ {
+  "frequency": 2,
+  "en": "padding",
+  "ru": "отбивка|дополнение|заполнение|отбивочный|дополняющий|заполняющий",
+  "example": "paddingChar",
+  "explain": "padding character — так называют сивол, которым дополняют строку с одного из концов до заданной длины",
+  "hard": true
+ },
+ {
+  "frequency": 2,
+  "en": "replace",
+  "ru": "заменить",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 2,
+  "en": "remove",
+  "ru": "удалить",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 1,
+  "en": "obj",
+  "ru": "сокращение от объект|объект",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 1,
+  "en": "equality",
+  "ru": "равенство",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 1,
+  "en": "inequality",
+  "ru": "неравенство",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 1,
+  "en": "source",
+  "ru": "источник|исходник|исходный",
+  "example": "sourceIndex",
+  "explain": "при копировании или перемещении так называют то, откуда копируют",
+  "hard": true
+ },
+ {
+  "frequency": 1,
+  "en": "empty",
+  "ru": "пустой",
+  "example": "IsNullOrEmpty",
+  "hard": true
+ },
+ {
+  "frequency": 1,
+  "en": "whitespace",
+  "ru": "пробельный символ|пробел",
+  "example": "IsNullOrWhiteSpace",
+  "hard": true
+ },
+ {
+  "frequency": 1,
+  "en": "space",
+  "ru": "пробел|пространство",
+  "example": "IsNullOrWhiteSpace",
+  "hard": true
+ },
+ {
+  "frequency": 1,
+  "en": "contains",
+  "ru": "содержит",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 1,
+  "en": "clone",
+  "ru": "клонировать|клон|склонировать",
+  "example": null,
+  "hard": true
+ },
+ {
+  "frequency": 1,
+  "en": "insert",
+  "ru": "вставить",
+  "example": null,
+  "hard": true
+ }
+]

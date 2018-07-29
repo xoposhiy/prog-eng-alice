@@ -1,0 +1,149 @@
+[
+  {
+    "frequency": 19,
+    "en": "item",
+    "ru": "элемент",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 12,
+    "en": "match",
+    "ru": "соответствие|совместить",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 9,
+    "en": "find",
+    "ru": "найти",
+    "example": "FindIndex",
+    "hard": false
+  },
+  {
+    "frequency": 7,
+    "en": "key",
+    "ru": "ключ",
+    "example": "ContainsKey",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "range",
+    "ru": "диапазон|промежуток|регион",
+    "example": "InsertRange",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "sort",
+    "ru": "сортировать|отсортировать|упорядочить|упорядочивать|сортировка|упорядочивание",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 3,
+    "en": "capacity",
+    "ru": "емкость|ёмкость|вместимость",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 3,
+    "en": "add",
+    "ru": "добавить",
+    "example": "AddRange",
+    "hard": false
+  },
+  {
+    "frequency": 3,
+    "en": "binary",
+    "ru": "бинарный",
+    "example": "BinarySearch",
+    "hard": false
+  },
+  {
+    "frequency": 3,
+    "en": "search",
+    "ru": "поиск",
+    "example": "BinarySearch",
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "clear",
+    "ru": "очистить|очистка|опустошить|опустошение",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "insert",
+    "ru": "вставить",
+    "example": "InsertRange",
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "reverse",
+    "ru": "обратить|обратный",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "string",
+    "ru": "строка",
+    "example": "ToString",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "read",
+    "ru": "читать",
+    "example": "AsReadOnly",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "convert",
+    "ru": "преобразовать|конвертировать|преобразовывать",
+    "example": "ConvertAll",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "exist",
+    "ru": "существует",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "action",
+    "ru": "действие",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "each",
+    "ru": "каждый",
+    "example": "ForEach",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "excess",
+    "ru": "избыток|превышение|излишек|лишний|избыточный",
+    "example": "TrimExcess",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "sender",
+    "ru": "отправитель|передатчик",
+    "example": null,
+    "hard": false
+  }
+]

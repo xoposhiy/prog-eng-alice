@@ -1,0 +1,247 @@
+[
+  {
+    "frequency": 117,
+    "en": "path",
+    "ru": "путь",
+    "example": "GetTempPath",
+    "hard": false
+  },
+  {
+    "frequency": 40,
+    "en": "access",
+    "ru": "доступ",
+    "example": "GetAccessControl",
+    "hard": false
+  },
+  {
+    "frequency": 36,
+    "en": "search",
+    "ru": "поиск|искать",
+    "example": "searchPattern",
+    "hard": false
+  },
+  {
+    "frequency": 33,
+    "en": "write",
+    "ru": "писать",
+    "example": "LastWriteTime",
+    "hard": false
+  },
+  {
+    "frequency": 24,
+    "en": "creation",
+    "ru": "создание",
+    "example": "CreationTimeUtc",
+    "hard": false
+  },
+  {
+    "frequency": 24,
+    "en": "pattern",
+    "ru": "шаблон",
+    "example": "searchPattern",
+    "hard": false
+  },
+  {
+    "frequency": 18,
+    "en": "enumerate",
+    "ru": "перечислять",
+    "example": "EnumerateDirectories",
+    "hard": false
+  },
+  {
+    "frequency": 15,
+    "en": "create",
+    "ru": "создать",
+    "example": "CreateDirectory",
+    "hard": false
+  },
+  {
+    "frequency": 12,
+    "en": "open",
+    "ru": "открыть",
+    "example": "OpenRead",
+    "hard": false
+  },
+  {
+    "frequency": 12,
+    "en": "read",
+    "ru": "читать",
+    "example": "IsReadOnly",
+    "hard": false
+  },
+  {
+    "frequency": 10,
+    "en": "contents",
+    "ru": "содержание",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 9,
+    "en": "extension",
+    "ru": "расширение",
+    "example": "ChangeExtension",
+    "hard": false
+  },
+  {
+    "frequency": 8,
+    "en": "encoding",
+    "ru": "кодировка|кодирование",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 6,
+    "en": "mode",
+    "ru": "режим",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 6,
+    "en": "entries",
+    "ru": "записи|элементы",
+    "example": "EnumerateFileSystemEntries",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "include",
+    "ru": "включать",
+    "example": "includeSections",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "section",
+    "ru": "раздел",
+    "example": "includeSections",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "move",
+    "ru": "перемещать|переместить",
+    "example": "MoveTo",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "backup",
+    "ru": "резервное копирование|бэкап",
+    "example": "destinationBackupFileName",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "root",
+    "ru": "корень",
+    "example": "GetDirectoryRoot",
+    "hard": false
+  },
+  {
+    "frequency": 4,
+    "en": "combine",
+    "ru": "совмещать|сомбинировать",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "overwrite",
+    "ru": "перезаписать",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "decrypt",
+    "ru": "расшифровать|дешифровать",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "encrypt",
+    "ru": "шифровать|зашифровать",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "share",
+    "ru": "поделиться|делиться|шарить",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "error",
+    "ru": "ошибка",
+    "example": "ignoreMetadataErrors",
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "refresh",
+    "ru": "обновить",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "current",
+    "ru": "текущий",
+    "example": "SetCurrentDirectory",
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "recursive",
+    "ru": "рекурсивный",
+    "example": null,
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "subdirectory",
+    "ru": "поддиректория|подпапка",
+    "example": "CreateSubdirectory",
+    "hard": false
+  },
+  {
+    "frequency": 2,
+    "en": "invalid",
+    "ru": "недействительный|некорректный|невалидный",
+    "example": "GetInvalidFileNameChars",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "drive",
+    "ru": "диск",
+    "example": "GetLogicalDrives",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "change",
+    "ru": "менять|изменять|изменение|смена",
+    "example": "ChangeExtension",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "without",
+    "ru": "без",
+    "example": "GetFileNameWithoutExtension",
+    "hard": false
+  },
+  {
+    "frequency": 1,
+    "en": "random",
+    "ru": "случайный",
+    "example": "GetRandomFileName",
+    "hard": false
+  }
+]
