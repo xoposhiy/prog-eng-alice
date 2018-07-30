@@ -1,5 +1,3 @@
-const User = require('../models/user.js');
-
 module.exports = class DB {
     constructor(db) {
         this.db = db;
