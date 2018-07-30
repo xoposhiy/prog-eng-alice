@@ -32,4 +32,9 @@ module.exports = class DB {
     updateUser(userId, userDto) {
         return this.db.ref(`users/${userId}`).update(userDto);
     }
+
+    addBug(topicId, bug) {
+        const pushRef = this.db.ref(`bugreports/${topicId}`).push();
+        pushRef.set({en:bug.word.en, ru:bug.word.ru, ...bug});
+    }
 }

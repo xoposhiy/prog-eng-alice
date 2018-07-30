@@ -128,7 +128,7 @@
   {
     "frequency": 4,
     "en": "backup",
-    "ru": "резервное копирование|бэкап",
+    "ru": "резервное копирование|резервная копия|бэкап",
     "example": "destinationBackupFileName",
     "hard": false
   },
@@ -142,21 +142,21 @@
   {
     "frequency": 4,
     "en": "combine",
-    "ru": "совмещать|сомбинировать",
+    "ru": "совмещать|сомбинировать|комбинировать",
     "example": null,
     "hard": false
   },
   {
     "frequency": 2,
     "en": "overwrite",
-    "ru": "перезаписать",
+    "ru": "перезаписать|перезаписывать",
     "example": null,
     "hard": false
   },
   {
     "frequency": 2,
     "en": "decrypt",
-    "ru": "расшифровать|дешифровать",
+    "ru": "расшифровать|дешифровать|расшифровывать|дешифровывать",
     "example": null,
     "hard": false
   },
@@ -240,7 +240,7 @@
   {
     "frequency": 1,
     "en": "random",
-    "ru": "случайный",
+    "ru": "случайный|случайно",
     "example": "GetRandomFileName",
     "hard": false
   }

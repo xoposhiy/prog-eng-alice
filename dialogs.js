@@ -52,14 +52,28 @@ module.exports = function setupDialogs(alice, topics, db){
             console.log('correct | hint | defeat');
 
         }
-        if (!session.topicId && trySelectTopic(session, ctx)){
+        if (session.topicId && session.lastUserMistake && ctx.message.includes('это баг')){
+            db.addBug(session.topicId, session.lastUserMistake);
+            replyWithCurrentTask(
+                ctx, 
+                `Спасибо, когда-нибудь придёт мой программист и проверит слово ${session.lastUserMistake.word.en} и ответ ${session.lastUserMistake.userAnswer}.`, 
+                session.lastWord, 
+                true);
+            session.lastUserMistake = null;
+            return;
+        }
+        else if (!session.topicId && trySelectTopic(session, ctx)){
             console.log('selectTopic');
             return;
         }
         else if (!session.topicId || shouldListTopics(session, ctx)){
             console.log('listTopic');
+            const firstTime = !session.topicId;
             session.topicId = null;
-            return listTopics(session, ctx);
+            return listTopics(session, ctx, firstTime);
+        }
+        else if (hasTask && ctx.message.includes('повтори')){
+            return replyWithCurrentTask(ctx, "Повторяю.", session.lastWord, true, false);
         }
         else if (hasTask){
             console.log('incorrect');
@@ -87,8 +101,11 @@ module.exports = function setupDialogs(alice, topics, db){
         return !session.topicId || ctx.message && phrases.indexOf(ctx.message.toLowerCase()) >= 0;
 
     }
-    function listTopics(session, ctx){
-        let builder = buildReply(ctx, `У меня есть несколько тематических наборов слов из разных областей {C#|си шарп}: ${topics.map(t=>t.name).join(', ')}.\nПредлагаю начать с темы '${topics[0].name}'.`);
+    function listTopics(session, ctx, firstTime){
+        const longMessage = 'У меня есть несколько тематических наборов слов из разных областей {C#|си шарп}';
+        const shortMessage = 'Выбирай новую тему';
+        let message = `${firstTime ? longMessage : shortMessage}: ${topics.map(t=>t.name).join(', ')}.`;
+        let builder = buildReply(ctx, message);
         topics.forEach(t => {
             const name = parseTts(t.name);
             builder.addButton(button({
@@ -99,26 +116,35 @@ module.exports = function setupDialogs(alice, topics, db){
         ctx.reply(builder.get());
     }
 
-    function addTaskButtons(builder){
-        return builder
+    function addTaskButtons(builder, showReportBug){
+        builder
             .addButton(button({title:'Подсказку', hide:true}))
             .addButton(button({title:'Сдаюсь', hide:true}))
             .addButton(button({title:'Сменить тему', hide:true}));
+        if (showReportBug)
+            builder.addButton(button({title:'Протестую, это баг!', hide:true}));
+        
+        return builder;
 
     }
-    function giveTask(session, ctx, preText, firstTime){
+    function giveTask(session, ctx, preText, firstTime, showReportBug){
         session.mistakes = 0;
         session.exampleUsed = false;
         session.explainUsed = false;
         session.candidatesUsed = false;
         const word = getNextWord(session);
+        replyWithCurrentTask(ctx, preText, word, firstTime, showReportBug);
+    }
+
+    function replyWithCurrentTask(ctx, preText, word, firstTime, showReportBug){
         let translateWord = 'Переведи слово';
         if (!firstTime)
             translateWord = randomItem('Следующее слово:|Следующее:|Переведи слово '.split('|'));
 
         ctx.reply(
             addTaskButtons(
-                buildReply(ctx, joinSentences(preText, `${translateWord} ${word.en}.`))
+                buildReply(ctx, joinSentences(preText, `${translateWord} ${word.en}.`)),
+                showReportBug
             ).get());
     }
 
@@ -135,22 +161,21 @@ module.exports = function setupDialogs(alice, topics, db){
     function getNextWord(session){
         const words = getWords(session).map(w => ({ w: w, streak: getWordData(session, w).streak}));
         words.sort((a, b) => a.streak - b.streak);
-        console.log(words.length + ' words in topic ' + session.topicId);
-        console.log(words.map(w => w.streak + ' ' + w.w.en));
         let minStreak = words[0].streak;
         let candidates = words.filter(w => w.streak == minStreak).map(p => p.w);
         return session.lastWord = randomItem(candidates);
     }    
-   
+
     function isDefeat(message){
         return ["сдаюсь", "не знаю"].indexOf(message.toLowerCase()) >= 0;
     }
     
     function defeatAnswer(word, session, ctx){
         registerTry(word, session, false);
+        const showReportBug = session.lastUserMistake && session.lastUserMistake.word && session.lastUserMistake.word.en == word.en;
         const defeatMessage = formatDefeatMessage(word);
         const newWord = getNextWord(session);
-        giveTask(session, ctx, defeatMessage, false);
+        giveTask(session, ctx, defeatMessage, false, showReportBug);
     }
     
     function formatDefeatMessage(word){
@@ -158,24 +183,43 @@ module.exports = function setupDialogs(alice, topics, db){
         if(word.example){
             reply.push(`Пример использования: {${word.example}|${convertIdentifierToTts(word.example)}}.`)
         }
+        if (word.explain){
+            reply.push(word.explain + '.');
+        }
+
         return reply.join(' ');
     }
     
     function isCorrect(word, answer){
         return word.ru.indexOf(answer.toLowerCase()) >= 0
     }
+
     function correctAnswer(session, ctx){
         registerTry(session.lastWord, session, true);
+        let ok = randomItem('Верно|Да|Ага|Правильно'.split('|')) + `, '${ctx.message}'`;
+        const defaultTranslation = session.lastWord.ru.split('|')[0];
+        if (ctx.message.toLowerCase() != defaultTranslation)
+            ok += ` или '${defaultTranslation}'`
+        ok += '.'
+        if (session.lastWord.explain){
+            ok += ' ' + session.lastWord.explain + '.';
+        }
         const newWord = getNextWord(session);
-        const ok = randomItem('Верно!|Да!|Ага.|Правильно!'.split('|'));
         giveTask(session, ctx, ok, false);
     }
     
     function incorrectAnswer(word, session, ctx){
         registerTry(word, session, false);
+        const userAnswer = ctx.message.toLowerCase();
+        session.lastUserMistake = { word, userAnswer };
+        let message = `Нет, не ${userAnswer}.`;
+        if (session.mistakes > 1)
+            message += ` Это неверный перевод {слова|сл+ова} ${word.en}.`
+        if (session.mistakes > 2)
+            message += ` Напоминаю, что можно взять подсказку.`
         ctx.reply(
             addTaskButtons(
-                buildReply(ctx, `Это неверный перевод {слова|сл+ова} ${word.en}. Попробуй ещё раз или попроси подсказку.`))
+                buildReply(ctx, message))
             .get());
     }
     
@@ -222,7 +266,9 @@ module.exports = function setupDialogs(alice, topics, db){
     }
 
     function registerTry(word, session, success){
-        if (!success) session.mistakes = session.mistakes + 1 || 1;
+        if (!success) {
+            session.mistakes = session.mistakes + 1 || 1;
+        }
         session.topics = session.topics || {};
         session.topics[session.topicId] = session.topics[session.topicId] || {};
         let wordData = session.topics[session.topicId][word.en] || {};
