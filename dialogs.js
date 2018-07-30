@@ -29,27 +29,50 @@ module.exports = function setupDialogs(alice, topics, db){
                     lastSessionId:ctx.sessionId
                 };
             }
-            if (ctx.message && ctx.message.toLowerCase() == "iddqd"){
-                ctx.reply(session.topicId + '\n' + JSON.stringify(session.lastWord, null, ' '));
-            }
-            else if (trySelectTopic(session, ctx)){
-            }
-            else if (shouldListTopics(session, ctx)){
-                listTopics(session, ctx);
-            }
-            else if (session.lastWord){
-                checkAnswer(session, ctx);
-            }
-            else{
-                giveTask(session, ctx, true);
-            }
+            dialog(session, ctx);
             session.lastSessionId = ctx.sessionId;
             session.userId = ctx.userId;
             return db.updateUser(ctx.userId, session);
         });
     });
 
+    function dialog(session, ctx){
+        const hasTask = session.topicId && session.lastWord;
+        if (ctx.message && ctx.message.toLowerCase() == "iddqd"){
+            return ctx.reply(session.topicId + '\n' + JSON.stringify(session.lastWord, null, ' '));
+        }
+        else if (hasTask && ctx.message){
+            const word = session.lastWord;
+            if (isCorrect(word, ctx.message))
+                return correctAnswer(session, ctx);
+            else if (isHintRequest(ctx.message))
+                return giveHintAnswer(word, session, ctx);
+            else if (isDefeat(ctx.message))
+                return defeatAnswer(word, session, ctx);
+            console.log('correct | hint | defeat');
+
+        }
+        if (!session.topicId && trySelectTopic(session, ctx)){
+            console.log('selectTopic');
+            return;
+        }
+        else if (!session.topicId || shouldListTopics(session, ctx)){
+            console.log('listTopic');
+            session.topicId = null;
+            return listTopics(session, ctx);
+        }
+        else if (hasTask){
+            console.log('incorrect');
+            return incorrectAnswer(session.lastWord, session, ctx);
+        }
+        else{
+            console.log('give task');
+            return giveTask(session, ctx, true);
+        }
+    }
+
     function trySelectTopic(session, ctx){
+        if (session.topicId) return false;
         const selected = topics.filter(t => ctx.payload == t.id || ctx.message && ctx.message.indexOf(t.command) >= 0);
         if (selected.length == 0) return false;
         const topic = selected[0];
@@ -60,42 +83,34 @@ module.exports = function setupDialogs(alice, topics, db){
     }
 
     function shouldListTopics(session, ctx){
-        const phrases = 'хватит|достаточно|другая тема|другую тему|другой набор|другой набор слов'.split('|');
-        return !session.topicId || phrases.indexOf(ctx.message.toLowerCase()) >= 0;
+        const phrases = 'хватит|достаточно|сменить тему|изменить тему|другая тема|другую тему|другой набор|другой набор слов'.split('|');
+        return !session.topicId || ctx.message && phrases.indexOf(ctx.message.toLowerCase()) >= 0;
 
     }
     function listTopics(session, ctx){
-        let builder = buildReply(ctx, `У меня есть несколько тематических наборов слов из разных областей {C#|си шарп}: ${topics.map(t=>t.name).join(', ')}.\nПредлагаю начать со темы '${topics[0].name}'.`);
+        let builder = buildReply(ctx, `У меня есть несколько тематических наборов слов из разных областей {C#|си шарп}: ${topics.map(t=>t.name).join(', ')}.\nПредлагаю начать с темы '${topics[0].name}'.`);
         topics.forEach(t => {
             const name = parseTts(t.name);
             builder.addButton(button({
                 title: name.text,
-                tts: name.text,
                 payload: t.id
             }));
         });
         ctx.reply(builder.get());
     }
 
-    function checkAnswer(session, ctx){
-        const word = session.lastWord;
-        if (isDefeat(ctx.message))
-            defeatAnswer(word, session, ctx);
-        if (isHintRequest(ctx.message))
-            giveHintAnswer(word, session, ctx);
-        else if (isCorrect(word, ctx.message))
-            correctAnswer(session, ctx);
-        else 
-            incorrectAnswer(word, session, ctx);
-    }
-
     function addTaskButtons(builder){
         return builder
             .addButton(button({title:'Подсказку', hide:true}))
-            .addButton(button({title:'Сдаюсь', hide:true}));
+            .addButton(button({title:'Сдаюсь', hide:true}))
+            .addButton(button({title:'Сменить тему', hide:true}));
 
     }
     function giveTask(session, ctx, preText, firstTime){
+        session.mistakes = 0;
+        session.exampleUsed = false;
+        session.explainUsed = false;
+        session.candidatesUsed = false;
         const word = getNextWord(session);
         let translateWord = 'Переведи слово';
         if (!firstTime)
@@ -111,9 +126,20 @@ module.exports = function setupDialogs(alice, topics, db){
         return topics.filter(t => t.id == session.topicId)[0].words;
     }
 
+    function getWordData(session, word){
+        session.topics = session.topics || {};
+        session.topics[session.topicId] = session.topics[session.topicId] || {};
+        return session.topics[session.topicId][word.en] = session.topics[session.topicId][word.en] || {tiesCount: 0, streak: 0};
+    }
+
     function getNextWord(session){
-        const words = getWords(session);
-        return session.lastWord = randomItem(words);
+        const words = getWords(session).map(w => ({ w: w, streak: getWordData(session, w).streak}));
+        words.sort((a, b) => a.streak - b.streak);
+        console.log(words.length + ' words in topic ' + session.topicId);
+        console.log(words.map(w => w.streak + ' ' + w.w.en));
+        let minStreak = words[0].streak;
+        let candidates = words.filter(w => w.streak == minStreak).map(p => p.w);
+        return session.lastWord = randomItem(candidates);
     }    
    
     function isDefeat(message){
@@ -121,8 +147,7 @@ module.exports = function setupDialogs(alice, topics, db){
     }
     
     function defeatAnswer(word, session, ctx){
-        session.mistakes = 0;
-        session.exampleUsed = false;
+        registerTry(word, session, false);
         const defeatMessage = formatDefeatMessage(word);
         const newWord = getNextWord(session);
         giveTask(session, ctx, defeatMessage, false);
@@ -140,15 +165,14 @@ module.exports = function setupDialogs(alice, topics, db){
         return word.ru.indexOf(answer.toLowerCase()) >= 0
     }
     function correctAnswer(session, ctx){
-        session.mistakes = 0;
-        session.exampleUsed = false;
+        registerTry(session.lastWord, session, true);
         const newWord = getNextWord(session);
         const ok = randomItem('Верно!|Да!|Ага.|Правильно!'.split('|'));
         giveTask(session, ctx, ok, false);
     }
     
     function incorrectAnswer(word, session, ctx){
-        session.mistakes = session.mistakes + 1 || 1;
+        registerTry(word, session, false);
         ctx.reply(
             addTaskButtons(
                 buildReply(ctx, `Это неверный перевод {слова|сл+ова} ${word.en}. Попробуй ещё раз или попроси подсказку.`))
@@ -157,6 +181,7 @@ module.exports = function setupDialogs(alice, topics, db){
     
     function isHintRequest(message){
         return [
+            'забыл', 'не могу вспомнить', 'не помню',
             'помоги', 'подскажи', 
             'сложно', 'нет', 'не помогло',
             'хочу подсказку', 'дай подсказку', 'давай подсказку', 'подсказку', 
@@ -164,27 +189,49 @@ module.exports = function setupDialogs(alice, topics, db){
     }
 
     function giveHintAnswer(word, session, ctx){
-        session.mistakes = session.mistakes + 1 || 1;
+        registerTry(word, session, false);
         if (word.example && !session.exampleUsed){
             ctx.reply(
-                buildReply(ctx, `Подсказка. Вот пример использования этого {слова|сл+ова}: {${word.example}|${convertIdentifierToTts(word.example)}}. Помогло?`)
+                buildReply(ctx, `Вот пример использования этого {слова|сл+ова}: {${word.example}|${convertIdentifierToTts(word.example)}}. Помогло?`)
                 .get());
             session.exampleUsed = true;
         }
-        else {
+        else if (word.explain && !session.explainUsed){
+            ctx.reply(
+                buildReply(ctx, `Подсказываю. ${word.explain}. Помогло?`)
+                .get());
+            session.explainUsed = true;
+
+        }
+        else if (!session.candidatesUsed) {
             const candidates = getHintCandidates(session, word);
             const builder = buildReply(ctx, `Один из этих вариантов правильный: ${candidates.join(', ')}`);
             candidates.forEach(c => {
                 const pair = parseTts(c);
                 builder.addButton(button({
                     title: pair.text,
-                    tts: pair.tts,
                     hide:true
                 }))
             });
-
+            session.candidatesUsed = true;
             ctx.reply(builder.get());
         }
+        else {
+            ctx.reply('Больше подсказок нет. Сдаёшься?');
+        }
+    }
+
+    function registerTry(word, session, success){
+        if (!success) session.mistakes = session.mistakes + 1 || 1;
+        session.topics = session.topics || {};
+        session.topics[session.topicId] = session.topics[session.topicId] || {};
+        let wordData = session.topics[session.topicId][word.en] || {};
+        wordData.triesCount = wordData.triesCount + 1 || 1;
+        if (success)
+            wordData.streak = (wordData.streak || 0) + 1;
+        else
+            wordData.streak = 0;
+        session.topics[session.topicId][word.en] = wordData;
     }
 
     function getHintCandidates(session, word){
