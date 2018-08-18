@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "cross-env-shell echo $nowToken",
     "predeploy": "echo y | cross-env-shell now rm prog-eng-alice --token=$nowToken || echo ops",
-    "deploy": "cross-env-shell now -e firebaseApiKey=$firebaseApiKey -e firebaseEmail=$firebaseEmail -e firebasePassword=$firebasePassword --token=$nowToken --public",
+    "deploy": "cross-env-shell now -e googleApiKey=$googleApiKey -e firebaseApiKey=$firebaseApiKey -e firebaseEmail=$firebaseEmail -e firebasePassword=$firebasePassword --token=$nowToken --public",
     "postdeploy": "cross-env now alias --token=$nowToken"
   },
   "repository": {

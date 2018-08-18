@@ -7,16 +7,87 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Yandex.Translator;
+// ReSharper disable All
 
 namespace SourceScanner
 {
     internal class Program
     {
-        private static readonly IYandexTranslator translator = 
+        private static readonly IYandexTranslator translator =
             Yandex.Translator.Yandex.Translator(api =>
             api.ApiKey(File.ReadAllText("yandex-translator-apiKey.user"))
                 .Format(ApiDataFormat.Json));
+
         private static void Main(string[] args)
+        {
+            //ScanApi(args);
+            var text = File.ReadAllText(@"c:\work\prog-eng-alice\vocabulary\compile-errors.txt");
+            Console.WriteLine(text.Length);
+            //var words = Regex.Matches(text, @"[A-Za-z][a-z]+").Cast<Match>().Select(m => m.Value.ToLower().Trim('\''))
+            //    .Where(w => w.Length > 2)
+            //    .ToLookup(w => w)
+            //    .Where(g => g.Count() >= 100)
+            //    .OrderByDescending(g => g.Count())
+            //    .Select(g => new
+            //    {
+            //        frequency = g.Count(),
+            //        en = g.Key,
+            //        ru = Translate(g.Key),
+            //        hard = false
+            //    }).ToArray();
+            //File.WriteAllText("compilation.json", JsonConvert.SerializeObject(words, Formatting.Indented));
+
+            var phrases = Regex.Matches(text, @"[A-Za-z][a-z]*( [A-Za-z][a-z]*)*").Cast<Match>().Select(m => m.Value.ToLower().Replace("'", "")).ToList();
+            var minFrequency = 25;
+            var grams4 = phrases.SelectMany(phrase => MakeGrams(phrase.Split(' '), 4))
+                .ToLookup(w => w)
+                .Where(g => g.Count() >= minFrequency)
+                .ToList();
+            Console.WriteLine($"4grams {grams4.Count}");
+            var grams3 = phrases.SelectMany(phrase => MakeGrams(phrase.Split(' '), 3)).Where(g3 => !grams4.Any(g4 => g4.Key.Contains(g3)))
+                .ToLookup(w => w)
+                .Where(g => g.Count() >= minFrequency)
+                .ToList();
+            Console.WriteLine($"3grams {grams3.Count}");
+            var grams2 = phrases.SelectMany(phrase => MakeGrams(phrase.Split(' '), 2)).Where(g2 => !grams3.Any(g3 => g3.Key.Contains(g2)) && !grams4.Any(g4 => g4.Key.Contains(g2)))
+                .ToLookup(w => w)
+                .Where(g => g.Count() >= minFrequency)
+                .ToList();
+            Console.WriteLine($"2grams {grams2.Count}");
+
+            var grams = grams4.Concat(grams3).Concat(grams2)
+                .Where(w => w.Key.Length > 6 && w.Key.IndexOf(' ') >= 0)
+                .OrderByDescending(g => g.Count())
+                .Select(g => new
+                {
+                    frequency = g.Count(),
+                    en = g.Key,
+                    ru = Translate(g.Key),
+                }).ToArray();
+            File.WriteAllText("compile3-errors.json", JsonConvert.SerializeObject(grams, Formatting.Indented));
+
+            Console.WriteLine(grams.Length);
+            //File.WriteAllLines("words.txt", words.Select(w => w.ToString()));
+        }
+
+        private static IEnumerable<string> MakeGrams(string[] phrase, int len)
+        {
+            var trash = "no|be|a|in|of|or|the|an|to|of|for|is|that|not|with".Split('|');
+            //Console.WriteLine(phrase.Length + " " + string.Join(" ", phrase));
+            for (int i = 0; i < phrase.Length-len; i++)
+            {
+                var gram = phrase[i];
+                for (int j = 1; j < len; j++)
+                {
+                    gram += " " + phrase[i + j];
+                }
+
+                if (!trash.Any(e => gram.EndsWith(" " + e)) && !trash.Any(s => gram.StartsWith(s + " ")))
+                    yield return gram;
+            }
+        }
+
+        private static void ScanApi(string[] args)
         {
             var dir = args.Length > 0 ? args[0] : ".";
             var pattern = args.Length > 1 ? args[1] : "*.cs";
@@ -78,7 +149,7 @@ namespace SourceScanner
         private static string Translate(string engWord)
         {
             var translation = translator.Translate("ru", engWord);
-            Console.WriteLine(translation.Text);
+            Console.WriteLine(engWord + " - " + translation.Text);
             return translation.Text.ToLower();
         }
 
@@ -94,7 +165,7 @@ namespace SourceScanner
             {
                 var identifier = match.Value;
                 var words = Regex.Replace(identifier, "[A-Z]", m => " " + m.Value.ToLower())
-                    .Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+                    .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var word in words) yield return (word.ToLower(), identifier);
             }
         }

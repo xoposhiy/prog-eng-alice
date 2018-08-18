@@ -92,6 +92,7 @@ module.exports = function setupDialogs(alice, topics, db){
         const topic = selected[0];
         console.log('set topic to ' + topic.id);
         session.topicId = topic.id;
+        console.log('words count ' + topic.words.length);
         giveTask(session, ctx, `Итак, тема '${topic.longname}'. Из возможных вариантов ответа выбирай тот, который лучше подходит к теме.`, true);
         return true;
     }
@@ -183,8 +184,8 @@ module.exports = function setupDialogs(alice, topics, db){
         if(word.example){
             reply.push(`Пример использования: {${word.example}|${convertIdentifierToTts(word.example)}}.`)
         }
-        if (word.explain){
-            reply.push(word.explain + '.');
+        if (word.explanation){
+            reply.push(word.explanation + '.');
         }
 
         return reply.join(' ');
@@ -201,8 +202,8 @@ module.exports = function setupDialogs(alice, topics, db){
         if (ctx.message.toLowerCase() != defaultTranslation)
             ok += ` или '${defaultTranslation}'`
         ok += '.'
-        if (session.lastWord.explain){
-            ok += ' ' + session.lastWord.explain + '.';
+        if (session.lastWord.explanation){
+            ok += ' ' + session.lastWord.explanation + '.';
         }
         const newWord = getNextWord(session);
         giveTask(session, ctx, ok, false);
@@ -240,9 +241,9 @@ module.exports = function setupDialogs(alice, topics, db){
                 .get());
             session.exampleUsed = true;
         }
-        else if (word.explain && !session.explainUsed){
+        else if (word.explanation && !session.explainUsed){
             ctx.reply(
-                buildReply(ctx, `Подсказываю. ${word.explain}. Помогло?`)
+                buildReply(ctx, `Подсказываю. ${word.explanation}. Помогло?`)
                 .get());
             session.explainUsed = true;
 
