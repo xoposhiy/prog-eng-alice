@@ -1,0 +1,884 @@
+[
+  {
+    "frequency": 41610,
+    "en": "the",
+    "ru": "то",
+    "hard": false
+  },
+  {
+    "frequency": 27537,
+    "en": "error",
+    "ru": "ошибка",
+    "hard": false
+  },
+  {
+    "frequency": 14285,
+    "en": "not",
+    "ru": "не",
+    "hard": false
+  },
+  {
+    "frequency": 14165,
+    "en": "warning",
+    "ru": "предупреждение",
+    "hard": false
+  },
+  {
+    "frequency": 11425,
+    "en": "used",
+    "ru": "использовать",
+    "hard": false
+  },
+  {
+    "frequency": 11157,
+    "en": "value",
+    "ru": "значение",
+    "hard": false
+  },
+  {
+    "frequency": 11068,
+    "en": "checking",
+    "ru": "проверка",
+    "hard": false
+  },
+  {
+    "frequency": 10794,
+    "en": "system",
+    "ru": "система",
+    "hard": false
+  },
+  {
+    "frequency": 10667,
+    "en": "project",
+    "ru": "проект",
+    "hard": false
+  },
+  {
+    "frequency": 10303,
+    "en": "field",
+    "ru": "поле",
+    "hard": false
+  },
+  {
+    "frequency": 10298,
+    "en": "assembly",
+    "ru": "сборка",
+    "hard": false
+  },
+  {
+    "frequency": 10124,
+    "en": "never",
+    "ru": "никогда",
+    "hard": false
+  },
+  {
+    "frequency": 10094,
+    "en": "should",
+    "ru": "следует",
+    "hard": false
+  },
+  {
+    "frequency": 10081,
+    "en": "does",
+    "ru": "делает",
+    "hard": false
+  },
+  {
+    "frequency": 9653,
+    "en": "type",
+    "ru": "тип",
+    "hard": false
+  },
+  {
+    "frequency": 9523,
+    "en": "classes",
+    "ru": "классы",
+    "hard": false
+  },
+  {
+    "frequency": 9517,
+    "en": "etalons",
+    "ru": "эталоны",
+    "hard": false
+  },
+  {
+    "frequency": 8695,
+    "en": "name",
+    "ru": "название",
+    "hard": false
+  },
+  {
+    "frequency": 7891,
+    "en": "and",
+    "ru": "и",
+    "hard": false
+  },
+  {
+    "frequency": 7859,
+    "en": "version",
+    "ru": "версия",
+    "hard": false
+  },
+  {
+    "frequency": 7706,
+    "en": "for",
+    "ru": "для",
+    "hard": false
+  },
+  {
+    "frequency": 7121,
+    "en": "microsoft",
+    "ru": "майкрософт",
+    "hard": false
+  },
+  {
+    "frequency": 7096,
+    "en": "cannot",
+    "ru": "не может",
+    "hard": false
+  },
+  {
+    "frequency": 6971,
+    "en": "task",
+    "ru": "задача",
+    "hard": false
+  },
+  {
+    "frequency": 6870,
+    "en": "current",
+    "ru": "тока",
+    "hard": false
+  },
+  {
+    "frequency": 6718,
+    "en": "context",
+    "ru": "контексте",
+    "hard": false
+  },
+  {
+    "frequency": 6572,
+    "en": "exist",
+    "ru": "существует",
+    "hard": false
+  },
+  {
+    "frequency": 6231,
+    "en": "reference",
+    "ru": "ссылка",
+    "hard": false
+  },
+  {
+    "frequency": 6208,
+    "en": "windows",
+    "ru": "окна",
+    "hard": false
+  },
+  {
+    "frequency": 6010,
+    "en": "string",
+    "ru": "строку",
+    "hard": false
+  },
+  {
+    "frequency": 5904,
+    "en": "you",
+    "ru": "вы",
+    "hard": false
+  },
+  {
+    "frequency": 5764,
+    "en": "csproj",
+    "ru": "csproj файл",
+    "hard": false
+  },
+  {
+    "frequency": 5695,
+    "en": "processor",
+    "ru": "процессор",
+    "hard": false
+  },
+  {
+    "frequency": 5339,
+    "en": "framework",
+    "ru": "рамки",
+    "hard": false
+  },
+  {
+    "frequency": 5098,
+    "en": "int",
+    "ru": "тип int",
+    "hard": false
+  },
+  {
+    "frequency": 4831,
+    "en": "method",
+    "ru": "способ",
+    "hard": false
+  },
+  {
+    "frequency": 4790,
+    "en": "architecture",
+    "ru": "архитектура",
+    "hard": false
+  },
+  {
+    "frequency": 4719,
+    "en": "missing",
+    "ru": "отсутствует",
+    "hard": false
+  },
+  {
+    "frequency": 4488,
+    "en": "dll",
+    "ru": "библиотеки dll",
+    "hard": false
+  },
+  {
+    "frequency": 4421,
+    "en": "are",
+    "ru": "являются",
+    "hard": false
+  },
+  {
+    "frequency": 4416,
+    "en": "found",
+    "ru": "найдено",
+    "hard": false
+  },
+  {
+    "frequency": 4204,
+    "en": "argument",
+    "ru": "аргумент",
+    "hard": false
+  },
+  {
+    "frequency": 4137,
+    "en": "from",
+    "ru": "от",
+    "hard": false
+  },
+  {
+    "frequency": 4122,
+    "en": "convert",
+    "ru": "преобразования",
+    "hard": false
+  },
+  {
+    "frequency": 3936,
+    "en": "targets",
+    "ru": "цели",
+    "hard": false
+  },
+  {
+    "frequency": 3848,
+    "en": "your",
+    "ru": "ваш",
+    "hard": false
+  },
+  {
+    "frequency": 3716,
+    "en": "could",
+    "ru": "может",
+    "hard": false
+  },
+  {
+    "frequency": 3628,
+    "en": "this",
+    "ru": "это",
+    "hard": false
+  },
+  {
+    "frequency": 3603,
+    "en": "contain",
+    "ru": "содержать",
+    "hard": false
+  },
+  {
+    "frequency": 3573,
+    "en": "using",
+    "ru": "используя",
+    "hard": false
+  },
+  {
+    "frequency": 3464,
+    "en": "directive",
+    "ru": "директива",
+    "hard": false
+  },
+  {
+    "frequency": 3376,
+    "en": "definition",
+    "ru": "определение",
+    "hard": false
+  },
+  {
+    "frequency": 3272,
+    "en": "get",
+    "ru": "получить",
+    "hard": false
+  },
+  {
+    "frequency": 3074,
+    "en": "may",
+    "ru": "может",
+    "hard": false
+  },
+  {
+    "frequency": 2906,
+    "en": "building",
+    "ru": "дом",
+    "hard": false
+  },
+  {
+    "frequency": 2856,
+    "en": "done",
+    "ru": "сделано",
+    "hard": false
+  },
+  {
+    "frequency": 2842,
+    "en": "consider",
+    "ru": "рассмотрим",
+    "hard": false
+  },
+  {
+    "frequency": 2762,
+    "en": "ulearn",
+    "ru": "ulearn",
+    "hard": false
+  },
+  {
+    "frequency": 2657,
+    "en": "submissions",
+    "ru": "материалы",
+    "hard": false
+  },
+  {
+    "frequency": 2591,
+    "en": "that",
+    "ru": "что",
+    "hard": false
+  },
+  {
+    "frequency": 2455,
+    "en": "between",
+    "ru": "между",
+    "hard": false
+  },
+  {
+    "frequency": 2389,
+    "en": "targeted",
+    "ru": "целевые",
+    "hard": false
+  },
+  {
+    "frequency": 2259,
+    "en": "key",
+    "ru": "ключ",
+    "hard": false
+  },
+  {
+    "frequency": 2251,
+    "en": "double",
+    "ru": "двойной",
+    "hard": false
+  },
+  {
+    "frequency": 2236,
+    "en": "extension",
+    "ru": "расширение",
+    "hard": false
+  },
+  {
+    "frequency": 2216,
+    "en": "token",
+    "ru": "маркер",
+    "hard": false
+  },
+  {
+    "frequency": 2155,
+    "en": "public",
+    "ru": "общественные",
+    "hard": false
+  },
+  {
+    "frequency": 2153,
+    "en": "namespace",
+    "ru": "пространство имен",
+    "hard": false
+  },
+  {
+    "frequency": 2135,
+    "en": "local",
+    "ru": "местные",
+    "hard": false
+  },
+  {
+    "frequency": 2112,
+    "en": "with",
+    "ru": "с",
+    "hard": false
+  },
+  {
+    "frequency": 2098,
+    "en": "culture",
+    "ru": "культура",
+    "hard": false
+  },
+  {
+    "frequency": 2087,
+    "en": "neutral",
+    "ru": "нейтральный",
+    "hard": false
+  },
+  {
+    "frequency": 2058,
+    "en": "first",
+    "ru": "первый",
+    "hard": false
+  },
+  {
+    "frequency": 2056,
+    "en": "default",
+    "ru": "по умолчанию",
+    "hard": false
+  },
+  {
+    "frequency": 2034,
+    "en": "implicitly",
+    "ru": "неявно",
+    "hard": false
+  },
+  {
+    "frequency": 2011,
+    "en": "vector",
+    "ru": "вектор",
+    "hard": false
+  },
+  {
+    "frequency": 1983,
+    "en": "build",
+    "ru": "построить",
+    "hard": false
+  },
+  {
+    "frequency": 1950,
+    "en": "accepting",
+    "ru": "принимая",
+    "hard": false
+  },
+  {
+    "frequency": 1923,
+    "en": "app",
+    "ru": "приложение",
+    "hard": false
+  },
+  {
+    "frequency": 1898,
+    "en": "mismatch",
+    "ru": "несоответствие",
+    "hard": false
+  },
+  {
+    "frequency": 1898,
+    "en": "references",
+    "ru": "ссылки",
+    "hard": false
+  },
+  {
+    "frequency": 1881,
+    "en": "solve",
+    "ru": "решить",
+    "hard": false
+  },
+  {
+    "frequency": 1881,
+    "en": "conflict",
+    "ru": "конфликт",
+    "hard": false
+  },
+  {
+    "frequency": 1876,
+    "en": "common",
+    "ru": "общие",
+    "hard": false
+  },
+  {
+    "frequency": 1869,
+    "en": "config",
+    "ru": "конфигурации",
+    "hard": false
+  },
+  {
+    "frequency": 1869,
+    "en": "remapping",
+    "ru": "переназначать",
+    "hard": false
+  },
+  {
+    "frequency": 1869,
+    "en": "rid",
+    "ru": "избавить",
+    "hard": false
+  },
+  {
+    "frequency": 1864,
+    "en": "tools",
+    "ru": "инструменты",
+    "hard": false
+  },
+  {
+    "frequency": 1815,
+    "en": "runtime",
+    "ru": "во время выполнения",
+    "hard": false
+  },
+  {
+    "frequency": 1771,
+    "en": "prog",
+    "ru": "прог",
+    "hard": false
+  },
+  {
+    "frequency": 1746,
+    "en": "net",
+    "ru": "чистая",
+    "hard": false
+  },
+  {
+    "frequency": 1710,
+    "en": "data",
+    "ru": "данные",
+    "hard": false
+  },
+  {
+    "frequency": 1669,
+    "en": "configuration",
+    "ru": "конфигурации",
+    "hard": false
+  },
+  {
+    "frequency": 1596,
+    "en": "object",
+    "ru": "объект",
+    "hard": false
+  },
+  {
+    "frequency": 1576,
+    "en": "parameter",
+    "ru": "параметр",
+    "hard": false
+  },
+  {
+    "frequency": 1520,
+    "en": "variable",
+    "ru": "переменная",
+    "hard": false
+  },
+  {
+    "frequency": 1511,
+    "en": "please",
+    "ru": "пожалуйста",
+    "hard": false
+  },
+  {
+    "frequency": 1473,
+    "en": "assemblies",
+    "ru": "сборки",
+    "hard": false
+  },
+  {
+    "frequency": 1449,
+    "en": "services",
+    "ru": "услуги",
+    "hard": false
+  },
+  {
+    "frequency": 1419,
+    "en": "there",
+    "ru": "там",
+    "hard": false
+  },
+  {
+    "frequency": 1373,
+    "en": "arguments",
+    "ru": "аргументы",
+    "hard": false
+  },
+  {
+    "frequency": 1351,
+    "en": "return",
+    "ru": "вернуться",
+    "hard": false
+  },
+  {
+    "frequency": 1308,
+    "en": "have",
+    "ru": "иметь",
+    "hard": false
+  },
+  {
+    "frequency": 1303,
+    "en": "only",
+    "ru": "только",
+    "hard": false
+  },
+  {
+    "frequency": 1248,
+    "en": "code",
+    "ru": "код",
+    "hard": false
+  },
+  {
+    "frequency": 1232,
+    "en": "which",
+    "ru": "что",
+    "hard": false
+  },
+  {
+    "frequency": 1195,
+    "en": "target",
+    "ru": "цель",
+    "hard": false
+  },
+  {
+    "frequency": 1162,
+    "en": "file",
+    "ru": "файл",
+    "hard": false
+  },
+  {
+    "frequency": 1138,
+    "en": "will",
+    "ru": "будет",
+    "hard": false
+  },
+  {
+    "frequency": 1106,
+    "en": "program",
+    "ru": "программа",
+    "hard": false
+  },
+  {
+    "frequency": 1102,
+    "en": "geometry",
+    "ru": "геометрия",
+    "hard": false
+  },
+  {
+    "frequency": 1080,
+    "en": "web",
+    "ru": "веб",
+    "hard": false
+  },
+  {
+    "frequency": 1076,
+    "en": "read",
+    "ru": "читать",
+    "hard": false
+  },
+  {
+    "frequency": 1066,
+    "en": "rebuild",
+    "ru": "восстановить",
+    "hard": false
+  },
+  {
+    "frequency": 1061,
+    "en": "take",
+    "ru": "взять",
+    "hard": false
+  },
+  {
+    "frequency": 1044,
+    "en": "operator",
+    "ru": "оператор",
+    "hard": false
+  },
+  {
+    "frequency": 1038,
+    "en": "list",
+    "ru": "список",
+    "hard": false
+  },
+  {
+    "frequency": 1030,
+    "en": "learn",
+    "ru": "узнать",
+    "hard": false
+  },
+  {
+    "frequency": 1024,
+    "en": "mscorlib",
+    "ru": "библиотеку mscorlib",
+    "hard": false
+  },
+  {
+    "frequency": 1019,
+    "en": "analysis",
+    "ru": "анализ",
+    "hard": false
+  },
+  {
+    "frequency": 1016,
+    "en": "failures",
+    "ru": "неудачи",
+    "hard": false
+  },
+  {
+    "frequency": 1014,
+    "en": "basic",
+    "ru": "основные",
+    "hard": false
+  },
+  {
+    "frequency": 1013,
+    "en": "resolve",
+    "ru": "решения",
+    "hard": false
+  },
+  {
+    "frequency": 992,
+    "en": "member",
+    "ru": "участник",
+    "hard": false
+  },
+  {
+    "frequency": 989,
+    "en": "char",
+    "ru": "голец",
+    "hard": false
+  },
+  {
+    "frequency": 982,
+    "en": "targeting",
+    "ru": "таргетинг",
+    "hard": false
+  },
+  {
+    "frequency": 982,
+    "en": "pack",
+    "ru": "пакет",
+    "hard": false
+  },
+  {
+    "frequency": 978,
+    "en": "was",
+    "ru": "был",
+    "hard": false
+  },
+  {
+    "frequency": 969,
+    "en": "directory",
+    "ru": "каталог",
+    "hard": false
+  },
+  {
+    "frequency": 964,
+    "en": "through",
+    "ru": "через",
+    "hard": false
+  },
+  {
+    "frequency": 960,
+    "en": "being",
+    "ru": "будучи",
+    "hard": false
+  },
+  {
+    "frequency": 960,
+    "en": "slides",
+    "ru": "слайды",
+    "hard": false
+  },
+  {
+    "frequency": 959,
+    "en": "contains",
+    "ru": "содержит",
+    "hard": false
+  },
+  {
+    "frequency": 959,
+    "en": "all",
+    "ru": "все",
+    "hard": false
+  },
+  {
+    "frequency": 959,
+    "en": "courses",
+    "ru": "курсы",
+    "hard": false
+  },
+  {
+    "frequency": 949,
+    "en": "built",
+    "ru": "построен",
+    "hard": false
+  },
+  {
+    "frequency": 949,
+    "en": "cause",
+    "ru": "причиной",
+    "hard": false
+  },
+  {
+    "frequency": 949,
+    "en": "changing",
+    "ru": "изменение",
+    "hard": false
+  },
+  {
+    "frequency": 949,
+    "en": "manager",
+    "ru": "менеджер",
+    "hard": false
+  },
+  {
+    "frequency": 949,
+    "en": "align",
+    "ru": "выровнять",
+    "hard": false
+  },
+  {
+    "frequency": 949,
+    "en": "architectures",
+    "ru": "архитектур",
+    "hard": false
+  },
+  {
+    "frequency": 949,
+    "en": "dependency",
+    "ru": "зависимость",
+    "hard": false
+  },
+  {
+    "frequency": 949,
+    "en": "matches",
+    "ru": "матчи",
+    "hard": false
+  },
+  {
+    "frequency": 928,
+    "en": "array",
+    "ru": "массив",
+    "hard": false
+  },
+  {
+    "frequency": 914,
+    "en": "applied",
+    "ru": "применяется",
+    "hard": false
+  },
+  {
+    "frequency": 910,
+    "en": "expression",
+    "ru": "выражение",
+    "hard": false
+  },
+  {
+    "frequency": 900,
+    "en": "location",
+    "ru": "расположение",
+    "hard": false
+  }
+]

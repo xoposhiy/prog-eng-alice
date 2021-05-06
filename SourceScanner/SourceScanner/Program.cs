@@ -17,7 +17,7 @@ namespace SourceScanner
             Yandex.Translator.Yandex.Translator(api =>
             api.ApiKey(File.ReadAllText("yandex-translator-apiKey.user"))
                 .Format(ApiDataFormat.Json));
-
+        
         private static void Main(string[] args)
         {
             //ScanApi(args);
